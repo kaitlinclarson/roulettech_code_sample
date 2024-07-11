@@ -1,0 +1,79 @@
+.sidebar {
+    height: 100%;
+    background-color: #181818;
+    border-right: #333 1px solid;
+    width: 250px;
+}
+
+h1 {
+    margin: 0;
+    padding: 20px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    display: inline-flex;
+    border-top: #333 1px solid;
+    bottom: -1;
+    width: 100%;
+}
+
+a:link {
+    text-decoration: none;
+    color: #d9d9d9;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #d9d9d9;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #d9d9d9;
+    background-color: #333;
+}
+
+a:active {
+    text-decoration: none;
+    color: #d9d9d9;
+}
+
+a span {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+li:last-child a {
+    border-bottom: #333 1px solid;
+}
+
+.icon {
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    background-size: cover;
+    margin-right: 10px;
+    margin-left: 24px;
+}
+
+.favorite-icon {
+    background-image: url('fav_menu.svg');
+}
+
+.home-icon {
+    background-image: url('home_menu.svg');
+}
+
+.book-icon {
+    background-image: url('book_menu.svg');
+}
+
+.login-icon {
+    background-image: url('login.svg');
+}
