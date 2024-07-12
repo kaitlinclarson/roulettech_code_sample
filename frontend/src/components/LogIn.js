@@ -1,8 +1,10 @@
 import './LogIn.css';
 import { useState } from 'react';
+import fetchBooks from './FetchBooks';
+import { fetchFavorites } from './FavoritesOperations';
 
 function LogIn(props) {
-    let { loginModalOpen, setLoginModalOpen, setDisplayName } = props;
+    let { loginModalOpen, setLoginModalOpen, setDisplayName, setBookList, setFavoritesList } = props;
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -30,6 +32,8 @@ function LogIn(props) {
                 localStorage.setItem("auth", json.token);
                 localStorage.setItem("username", username);
                 setLoginModalOpen(!loginModalOpen);
+                fetchBooks(setBookList);
+                fetchFavorites(setFavoritesList);
                 return json;
             })
             .catch((error) => {

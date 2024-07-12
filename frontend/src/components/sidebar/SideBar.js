@@ -1,7 +1,9 @@
 import './SideBar.css';
+import fetchBooks from '../FetchBooks';
+import { useEffect } from 'react';
 
 function SideBar(props) {
-    let { loginModalOpen, setLoginModalOpen, displayName, setDisplayName } = props;
+    let { loginModalOpen, setLoginModalOpen, displayName, setDisplayName, setBookList, setFavoritesList } = props;
 
     function onLogInClick() {
         if (displayName.length === 0) {
@@ -29,8 +31,13 @@ function SideBar(props) {
                 setDisplayName('');
                 localStorage.removeItem("auth");
                 localStorage.removeItem("username");
+                fetchBooks(setBookList);
+                setFavoritesList([]);
             })
             .catch((error) => {
+                setDisplayName('');
+                localStorage.removeItem("auth");
+                localStorage.removeItem("username");
                 console.log(error);
             });
     }
@@ -42,8 +49,8 @@ function SideBar(props) {
                 {displayName ? <h3>Logged in as: {displayName}</h3> : ''}
             </header>
             <ul>
-                <li><a><span className="icon home-icon" /><span>All Books</span></a></li>
-                <li><a><span className="icon favorite-icon" /><span>Favorites</span></a></li>
+                <li><a onClick={() => fetchBooks(setBookList)}><span className="icon home-icon" /><span>All Books</span></a></li>
+                {/* <li><a><span className="icon favorite-icon" /><span>Favorites</span></a></li> */}
                 {/* <li><a><span className="icon book-icon" /><span>Currently Reading</span></a></li> */}
                 <li>
                     <a onClick={onLogInClick}>

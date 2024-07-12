@@ -19,4 +19,6 @@ from books import views
 
 urlpatterns = [
     path('books/', views.book_list),
+    path('favorites/', views.favorite_list),
+    path('favorites/add', views.add_favorite),
 ]

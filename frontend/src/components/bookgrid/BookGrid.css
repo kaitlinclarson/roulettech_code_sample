@@ -1,6 +1,8 @@
 .book-grid .container {
     display: flex;
     flex-wrap: wrap;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .book {
@@ -14,7 +16,7 @@
 }
 
 .book img {
-    margin-top: 10px;
+    width: 80%;
 }
 
 h2 {
@@ -41,6 +43,14 @@ h2 {
     background-size: cover;
 }
 
+.rating-star span.full {
+    background-image: url('star_full.svg');
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    background-size: cover;
+}
+
 .favorite {
     margin: 10px;
     align-self: flex-end;
@@ -52,6 +62,14 @@ h2 {
 
 .favorite span.empty {
     background-image: url('fav_empty.svg');
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    background-size: cover;
+}
+
+.favorite span.full {
+    background-image: url('fav_full.svg');
     height: 24px;
     width: 24px;
     display: inline-block;

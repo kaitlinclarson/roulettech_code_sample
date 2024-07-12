@@ -12,8 +12,10 @@ class Book(models.Model):
         ordering = ['created']
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
+class Favorite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    favorite = models.BooleanField(blank=True, default=False)
+    
     class Meta:
-        ordering = ['user']
+        unique_together = ('user', 'book',)
