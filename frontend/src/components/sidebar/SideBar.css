@@ -10,6 +10,11 @@ h1 {
     padding: 20px;
 }
 
+h3 {
+    margin: 0;
+    padding: 20px;
+}
+
 ul {
     margin: 0;
     padding: 0;
@@ -76,4 +81,8 @@ li:last-child a {
 
 .login-icon {
     background-image: url('login.svg');
+}
+
+.logout-icon {
+    background-image: url('logout.svg');
 }

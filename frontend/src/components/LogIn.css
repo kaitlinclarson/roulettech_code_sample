@@ -1,0 +1,41 @@
+.login {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.modal {
+    padding: 30px;
+    background-color: #121212;
+    border: #333 1px solid;
+    border-radius: 16px;
+}
+
+.modal form {
+    clear: right;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    text-align: right;
+}
+
+label input {
+    width: 200px;
+}
+
+button {
+    float: right;
+    margin-bottom: 12px;
+}
+
+.error {
+    color: red;
+    margin-top: 20px;
+}

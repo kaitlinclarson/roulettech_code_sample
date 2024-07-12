@@ -1,12 +1,12 @@
 import './BookGrid.css';
-import logo from '../logo.svg';
+import logo from './logo.svg';
 
 var bookName = "Book Name";
 var bookList = new Array(10).fill(0);
 
 function Rating() {
     return (
-        <div>
+        <div className="rating">
             {[1, 2, 3, 4, 5].map((value) => (
                 <label key={value} className="rating-star">
                     <input type="checkbox" value={value} /><span className="empty" />
@@ -17,12 +17,19 @@ function Rating() {
 }
 
 function Favorite() {
-
+    return (
+        <div className="favorite">
+            <label>
+                <input type="checkbox" /><span className="empty" />
+            </label>
+        </div>
+    );
 }
 
 function Book(key, image, name) {
     return (
         <div className="book item" key={key}>
+            {/* <Favorite /> */}
             <img src={image} alt={name} />
             <h2>{name}</h2>
             <Rating />
