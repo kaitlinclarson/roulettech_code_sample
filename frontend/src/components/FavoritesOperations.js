@@ -1,7 +1,9 @@
+import backendURL from "../global";
+
 function fetchFavorites(setFavoritesList) {
     console.log("Fetch favorites");
 
-    let URL = 'favorites';
+    let URL = backendURL + 'favorites';
     let token = localStorage.getItem("auth");
     let payload = { method: "GET" };
     if (token) {
@@ -30,7 +32,7 @@ function fetchFavorites(setFavoritesList) {
 function postFavorite(title, favorited, setFavoritesList) {
     console.log("Favoriting title");
 
-    let URL = 'favorites/add';
+    let URL = backendURL + 'favorites/add';
     let token = localStorage.getItem("auth");
     let body = JSON.stringify({ "title": title, "favorite": favorited });
     let payload = { method: "POST", body: body };

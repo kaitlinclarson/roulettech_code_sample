@@ -2,6 +2,7 @@ import './LogIn.css';
 import { useState } from 'react';
 import fetchBooks from './FetchBooks';
 import { fetchFavorites } from './FavoritesOperations';
+import backendURL from '../global';
 
 function LogIn(props) {
     let { loginModalOpen, setLoginModalOpen, setDisplayName, setBookList, setFavoritesList } = props;
@@ -9,13 +10,14 @@ function LogIn(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState(false);
+    const [registerError, setRegisterError] = useState(false);
 
     function onLogInClick() {
         setLoginModalOpen(!loginModalOpen);
     }
 
     function handleLogin() {
-        let URL = 'auth/login';
+        let URL = backendURL + 'auth/login';
         let body = JSON.stringify({ "username": username, "password": password });
         fetch(URL, {
             method: "POST",
@@ -43,7 +45,7 @@ function LogIn(props) {
     }
 
     function handleRegister() {
-        let URL = 'auth/signup';
+        let URL = backendURL + 'auth/signup';
         let body = JSON.stringify({ "username": username, "password": password });
         fetch(URL, {
             method: "POST",
@@ -56,7 +58,10 @@ function LogIn(props) {
             })
             .then((json) => console.log(json))
             .then(() => handleLogin())
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                console.log(error);
+                setRegisterError(true);
+            });
     }
 
     function handleUsernameChange(e) {
@@ -78,6 +83,7 @@ function LogIn(props) {
                     <input type="button" value="Register" onClick={handleRegister} />
                 </form>
                 {loginError ? <div className="error">ERROR: Could not log in</div> : ''}
+                {registerError ? <div className="error">ERROR: Could not register</div> : ''}
             </div>
         </div>
     );

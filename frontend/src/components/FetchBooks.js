@@ -1,7 +1,9 @@
+import backendURL from "../global";
+
 function fetchBooks(setBookList) {
     console.log("Fetch books");
 
-    let URL = 'books';
+    let URL = backendURL + 'books';
     let token = localStorage.getItem("auth");
     let payload = { method: "GET" };
     if (token) {
@@ -13,6 +15,7 @@ function fetchBooks(setBookList) {
         };
     }
 
+    console.log(URL);
     fetch(URL, payload)
         .then((response) => {
             if (!response.ok) throw new Error(response.status);

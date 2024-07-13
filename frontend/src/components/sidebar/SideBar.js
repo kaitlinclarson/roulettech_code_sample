@@ -1,6 +1,7 @@
 import './SideBar.css';
 import fetchBooks from '../FetchBooks';
 import { useEffect } from 'react';
+import backendURL from '../../global';
 
 function SideBar(props) {
     let { loginModalOpen, setLoginModalOpen, displayName, setDisplayName, setBookList, setFavoritesList } = props;
@@ -14,7 +15,7 @@ function SideBar(props) {
     }
 
     function handleLogout() {
-        let URL = 'auth/logout';
+        let URL = backendURL + 'auth/logout';
         let body = '';
         fetch(URL, {
             method: "POST",
